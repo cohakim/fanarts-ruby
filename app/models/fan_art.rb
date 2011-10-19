@@ -1,0 +1,10 @@
+class FanArt < ActiveRecord::Base
+  CONTEXT_MABINOGI    = 100
+  CONTEXT_MABINOGI_SS = 110
+  
+  CONTEXT = {
+    :MABINOGI => CONTEXT_MABINOGI, :MABINOGI_SS => CONTEXT_MABINOGI_SS,
+  }
+  
+  
+end
