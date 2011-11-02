@@ -5,6 +5,7 @@ class CreateFanArts < ActiveRecord::Migration
       t.string   :sequence, :null => false
       t.string   :title
       t.string   :author
+      t.string   :url
       t.string   :image_url
       t.string   :thumbnail_url
       t.datetime :published_at

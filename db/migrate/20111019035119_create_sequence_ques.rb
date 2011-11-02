@@ -3,7 +3,7 @@ class CreateSequenceQues < ActiveRecord::Migration
     create_table :sequence_ques do |t|
       t.integer  :context_id, :null => false
       t.string   :sequence, :null => false
-      t.integer  :error_count
+      t.integer  :error_count, :default => 0
       t.string   :last_error
       
       t.timestamps

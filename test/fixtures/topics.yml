@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: topics
+#
+#  id         :integer         not null, primary key
+#  topic      :integer         not null
+#  sequences  :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the
@@ -9,16 +20,3 @@ one: {}
 #
 two: {}
 #  column: value
-# == Schema Information
-#
-# Table name: sequence_ques
-#
-#  id          :integer         not null, primary key
-#  context_id  :integer         not null
-#  sequence    :string(255)     not null
-#  error_count :integer         default(0)
-#  last_error  :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-
