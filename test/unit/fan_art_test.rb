@@ -14,6 +14,7 @@ end
 #  sequence      :string(255)     not null
 #  title         :string(255)
 #  author        :string(255)
+#  url           :string(255)
 #  image_url     :string(255)
 #  thumbnail_url :string(255)
 #  published_at  :datetime

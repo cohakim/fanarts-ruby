@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20111026083630) do
     t.string   "sequence",      :null => false
     t.string   "title"
     t.string   "author"
+    t.string   "url"
     t.string   "image_url"
     t.string   "thumbnail_url"
     t.datetime "published_at"
@@ -37,6 +38,9 @@ ActiveRecord::Schema.define(:version => 20111026083630) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sequence_ques", ["context_id"], :name => "index_sequence_ques_on_context_id"
+  add_index "sequence_ques", ["sequence"], :name => "index_sequence_ques_on_sequence", :unique => true
 
   create_table "topics", :force => true do |t|
     t.integer  "topic",      :null => false

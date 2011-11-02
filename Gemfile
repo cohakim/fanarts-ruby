@@ -5,9 +5,9 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'jquery-rails'
 gem 'capistrano'
 gem 'sqlite3'
-gem 'mysql2'
 gem 'minitest'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+gem 'whenever', :require => false
 
 gem 'hpricot'
 gem 'kaminari'

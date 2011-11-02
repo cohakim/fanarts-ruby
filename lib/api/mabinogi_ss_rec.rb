@@ -12,7 +12,7 @@ class API::MabinogiSSRec
   #
   # ファンアート掲示板から新着ファンアートのシーケンス番号を取得する
   #
-  def self.sequences(start = 1, last = 1)
+  def sequences(start = 1, last = 1)
     sequences = Array.new
     page = start
     while (true) do
@@ -47,7 +47,7 @@ class API::MabinogiSSRec
   #
   # 指定されたシーケンス番号のファンアートの詳細情報を取得する
   #
-  def self.detail(sequence)
+  def detail(sequence)
     if sequence.blank? then return false end
     
     request_url = DETAIL_URL % sequence
@@ -71,7 +71,8 @@ class API::MabinogiSSRec
     end
     
     { :title => title, :author => author, :published_at => published_at, 
-      :image_url => image_url, :comment => comment, :sequence => sequence }
+      :comment => comment, :url => request_url, :image_url => image_url, 
+      :sequence => sequence }
   end
 
 end

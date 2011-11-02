@@ -12,7 +12,7 @@ class API::Mabinogi
   #
   # ファンアート掲示板から新着ファンアートのシーケンス番号を取得する
   #
-  def self.sequences(start = 1, last = 1)
+  def sequences(start = 1, last = 1)
     sequences = Array.new
     page = start
     while (true) do
@@ -47,7 +47,7 @@ class API::Mabinogi
   #
   # 指定されたシーケンス番号のファンアートの詳細情報を取得する
   #
-  def self.detail(sequence)
+  def detail(sequence)
     if sequence.blank? then return false end
     
     request_url = DETAIL_URL % sequence

@@ -12,4 +12,7 @@
 #
 
 class SequenceQue < ActiveRecord::Base
+  default_scope where('error_count <= 3')
+  scope :context, lambda {|context| where(['context_id = ?', context]) }
+  scope :broken_ques, lambda {|context| where('error_count > 3') }
 end

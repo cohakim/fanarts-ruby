@@ -11,11 +11,7 @@ class ArtsController < ApplicationController
   
   def mabinogi_fa_recommended
     page  = params[:page]
-
-    sequences = ActiveSupport::JSON.decode(
-      Topic.find_by_topic(Topic::TOPIC_MABINOGI_RECOMMENDED).try(:sequences) || []
-    )
-    items = FanArt.context(FanArt::CONTEXT_MABINOGI).sequences(sequences).newly.page(page)
+    items = FanArt.context(FanArt::CONTEXT_MABINOGI_REC).newly.page(page)
 
     respond_to do |format|
       format.html { render :json => items }
@@ -28,7 +24,7 @@ class ArtsController < ApplicationController
   
   def mabinogi_fa_random
     page  = params[:page]
-    items = FanArt.context(FanArt::CONTEXT_MABINOGI).random.page(page)
+    items = FanArt.contexts([FanArt::CONTEXT_MABINOGI_ALL]).random.page(page)
 
     respond_to do |format|
       format.html { render :json => items }
@@ -49,10 +45,7 @@ class ArtsController < ApplicationController
   def mabinogi_ss_recommended
     page  = params[:page]
 
-    sequences = ActiveSupport::JSON.decode(
-      Topic.find_by_topic(Topic::TOPIC_MABINOGISS_RECOMMENDED).try(:sequences) || []
-    )
-    items = FanArt.context(FanArt::CONTEXT_MABINOGISS).sequences(sequences).newly.page(page)
+    items = FanArt.context(FanArt::CONTEXT_MABINOGISS_REC).newly.page(page)
 
     respond_to do |format|
       format.html { render :json => items }
@@ -65,7 +58,7 @@ class ArtsController < ApplicationController
   
   def mabinogi_ss_random
     page  = params[:page]
-    items = FanArt.context(FanArt::CONTEXT_MABINOGISS).random.page(page)
+    items = FanArt.contexts(FanArt::CONTEXT_MABINOGISS_ALL).random.page(page)
 
     respond_to do |format|
       format.html { render :json => items }
@@ -88,7 +81,7 @@ class ArtsController < ApplicationController
 
   def fez_fa_random
     page  = params[:page]
-    items = FanArt.context(FanArt::CONTEXT_FEZ).random.page(page)
+    items = FanArt.contexts(FanArt::CONTEXT_FEZ_ALL).random.page(page)
 
     respond_to do |format|
       format.html { render :json => items }
