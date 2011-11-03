@@ -5,7 +5,7 @@ require "resolv-replace"
 require 'timeout'
 include ActionView::Helpers::TextHelper
 
-class API::Mabinogi
+class API::Fez
   INDEX_URL  = 'http://www.fezero.jp/com_imglist.aspx?page=%s'
   DETAIL_URL = 'http://www.fezero.jp/com_imgview.aspx?seq=%s'
   
