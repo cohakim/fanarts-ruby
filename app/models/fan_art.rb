@@ -39,7 +39,7 @@ class FanArt < ActiveRecord::Base
   paginates_per 20
   scope :newly, { :order => 'sequence desc' }
   scope :context, lambda {|context| where(['context_id = ?', context]) }
-  scope :contexts, lambda {|contexts| where(['context_id in (?)', context]) }
+  scope :contexts, lambda {|contexts| where(['context_id in (?)', contexts]) }
   scope :sequences, lambda{|sequences| where(['sequence in (?)', sequences]) }
   scope :random, lambda{ Rails.env.production? ? { :order => 'RANDOM()' } : { :order => 'RAND()' } }
 

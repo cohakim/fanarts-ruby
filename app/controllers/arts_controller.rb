@@ -24,7 +24,7 @@ class ArtsController < ApplicationController
   
   def mabinogi_fa_random
     page  = params[:page]
-    items = FanArt.contexts([FanArt::CONTEXT_MABINOGI_ALL]).random.page(page)
+    items = FanArt.contexts(FanArt::CONTEXT_MABINOGI_ALL).random.page(page)
 
     respond_to do |format|
       format.html { render :json => items }
