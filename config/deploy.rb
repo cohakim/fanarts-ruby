@@ -17,6 +17,7 @@ role :web, "106.187.39.247"
 role :app, "106.187.39.247"
 role :db,  "106.187.39.247", :primary => true
 
+# for bundler
 require "bundler/capistrano"
 set :bundle_gemfile,  "Gemfile"
 set :bundle_dir,      ""
@@ -25,6 +26,20 @@ set :bundle_without,  [:development, :test]
 set :bundle_cmd,      "bundle"
 set :bundle_roles,    [:app]
 
+# for whenever
 require "whenever/capistrano"
 set :whenever_command, "bundle exec whenever"
 set :whenever_roles, [:app]
+
+# for unicorn
+namespace :deploy do
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn_rails -c #{current_path}/config/unicorn.rb -E production -D"
+  end
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "kill -KILL -s QUIT `cat #{shared_path}/pids/unicorn.pid`"
+  end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "kill -KILL -s USR2 `cat #{shared_path}/pids/unicorn.pid`"
+  end
+end
