@@ -41,6 +41,6 @@ class FanArt < ActiveRecord::Base
   scope :context, lambda {|context| where(['context_id = ?', context]) }
   scope :contexts, lambda {|contexts| where(['context_id in (?)', contexts]) }
   scope :sequences, lambda{|sequences| where(['sequence in (?)', sequences]) }
-  scope :random, lambda{ Rails.env.production? ? { :order => 'RANDOM()' } : { :order => 'RAND()' } }
+  scope :random, lambda{ Rails.env.production? ? { :order => 'RAND()' } : { :order => 'RANDOM()' } }
 
 end
