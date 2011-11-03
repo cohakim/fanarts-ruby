@@ -16,7 +16,7 @@ class API::Mabinogi
     sequences = Array.new
     page = start
     while (true) do
-      if page == start || page % 10 == 0 then p 'processing: ' + page.to_s end
+      if page == start || page % 100 == 0 then p 'processing: ' + page.to_s end
 
       request_url = INDEX_URL % page
       begin
@@ -27,8 +27,7 @@ class API::Mabinogi
       end
 
       if response.base_uri.to_s != request_url
-        p 'end page touched'
-        p 'last page: ' + (page - 1).to_s
+        p 'end page touched: ' + (page - 1).to_s
         break
       end
       

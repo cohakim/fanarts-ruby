@@ -1,5 +1,3 @@
-require "bundler/capistrano"
-
 set :application, "fanarts"
 set :user,        "app"
 set :use_sudo,    false
@@ -19,13 +17,14 @@ role :web, "106.187.39.247"
 role :app, "106.187.39.247"
 role :db,  "106.187.39.247", :primary => true
 
-# set :default_environment, {
-#   'PATH' => "/home/app/.rbenv/shims:/home/app/.rbenv/bin:$PATH"
-# }
+require "bundler/capistrano"
 set :bundle_gemfile,  "Gemfile"
-set :bundle_dir,      File.join(fetch(:shared_path), 'bundle')
-set :bundle_flags,    "--deployment --quiet"
+set :bundle_dir,      ""
+set :bundle_flags,    ""
 set :bundle_without,  [:development, :test]
 set :bundle_cmd,      "bundle"
 set :bundle_roles,    [:app]
 
+require "whenever/capistrano"
+set :whenever_command, "bundle exec whenever"
+set :whenever_roles, [:app]
