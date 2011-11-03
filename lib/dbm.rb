@@ -5,7 +5,7 @@ class DBM
     context = options[:context]
     unless FanArt::CONTEXT.has_key?(context) then p 'unsupported context'; return false end
 
-    active_sequences  = api(context).sequences(1, 2000)
+    active_sequences  = api(context).sequences(1, 2000).compact
     Topic.create!(:topic => FanArt::CONTEXT[context], :sequences => active_sequences)
     
     nil
@@ -29,7 +29,7 @@ class DBM
     stored_sequences   = lambda {
       FanArt.context(FanArt::CONTEXT[context]).map{|i| i.sequence }
     }.call
-    inactive_sequences = stored_sequences - active_sequences
+    inactive_sequences = (stored_sequences - active_sequences).compact
     
     FanArt.context(FanArt::CONTEXT[context]).sequences(inactive_sequences).delete_all
     
@@ -45,11 +45,11 @@ class DBM
     active_sequences  = Topic.topic(FanArt::CONTEXT[context]).last.sequences
     stored_sequences  = lambda {
       FanArt.context(FanArt::CONTEXT[context]).map{|i| i.sequence } \
-        && SequenceQue.context(FanArt::CONTEXT[context]).map{|i| i.sequence }
+        + SequenceQue.context(FanArt::CONTEXT[context]).map{|i| i.sequence }
     }.call
-    new_sequences     = active_sequences - stored_sequences
+    new_sequences     = (active_sequences - stored_sequences).compact
     
-    new_sequences.map do |sequence|
+    new_sequences.each do |sequence|
       SequenceQue.create!({ :context_id => FanArt::CONTEXT[context], :sequence => sequence })
     end
     
