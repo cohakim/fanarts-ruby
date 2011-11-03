@@ -47,3 +47,8 @@ set :whenever_roles, [:app]
 # namespace :deploy do
 #   %w(start restart).each{|name| task name, :roles => :app do app.start end }
 # end
+
+
+after 'deploy:symlink' do
+  run "mkdir -p #{deploy_to}/#{shared_dir}/tmp/sockets"
+end
