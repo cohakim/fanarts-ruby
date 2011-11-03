@@ -70,7 +70,8 @@ class API::Fez
     end
     
     { :title => title, :author => author, :published_at => published_at, 
-      :image_url => image_url, :comment => comment, :sequence => sequence }
+      :comment => comment, :url => request_url, :image_url => image_url, 
+      :sequence => sequence }
   end
 
 end
