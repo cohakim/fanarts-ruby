@@ -6,7 +6,7 @@ set :scm, :git
 set :branch,      "develop"
 set :repository,  "/Users/cohakim/Public/Dropbox/projects/Rails/FanArts"
 set :deploy_via,  :copy
-set :deploy_to,   "/var/www/app/fanarts/"
+set :deploy_to,   "/var/www/app/fanarts"
 
 # set :branch,      "master"
 # set :repository,  "git@github.com:cohakim/simple1000.git"
@@ -50,5 +50,6 @@ set :whenever_roles, [:app]
 
 
 after 'deploy:symlink' do
-  run "mkdir -p #{deploy_to}/#{shared_dir}/tmp/sockets"
+  run "mkdir -p #{shared_path}/sockets"
+  run "ln -s #{shared_path}/sockets #{current_path}/tmp/sockets"
 end
