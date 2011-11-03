@@ -2,11 +2,12 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'ruby-debug19', :require => 'ruby-debug'
-gem 'uglifier'
-gem 'therubyracer'
 gem 'jquery-rails'
+gem 'unicorn'
 gem 'capistrano'
 gem 'sqlite3'
+gem 'uglifier'
+gem 'therubyracer'
 gem 'minitest'
 gem 'whenever', :require => false
 
