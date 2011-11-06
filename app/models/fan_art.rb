@@ -37,7 +37,7 @@ class FanArt < ActiveRecord::Base
   
   ############################################################################
   paginates_per 20
-  scope :newly, { :order => 'sequence desc' }
+  scope :newly, { :order => 'cast(sequence as SIGNED) desc' }
   scope :context, lambda {|context| where(['context_id = ?', context]) }
   scope :contexts, lambda {|contexts| where(['context_id in (?)', contexts]) }
   scope :sequences, lambda{|sequences| where(['sequence in (?)', sequences]) }
