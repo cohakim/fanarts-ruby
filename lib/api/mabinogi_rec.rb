@@ -9,9 +9,6 @@ class API::MabinogiRec
   INDEX_URL = 'http://www.mabinogi.jp/6th/community/fanartBoardList.asp?sv=re&p=%s'
   DETAIL_URL = 'http://www.mabinogi.jp/6th/community/fanartBoardContent.asp?sv=re&ix=%s'
   
-  #
-  # おすすめファンアート掲示板から新着おすすめファンアートのシーケンス番号を取得する
-  #
   def sequences(start = 1, last = 1)
     sequences = Array.new
     page = start
@@ -33,7 +30,7 @@ class API::MabinogiRec
 
       doc = Hpricot(response.read)
       links = (doc/'div.fanart-item-detail'/'div.'/:a).map{|a| a[:href] }.uniq
-      new_sequences = links.map{|link| /ix=(\d+)/ =~ link; $1 }
+      new_sequences = links.map{|link| /ix=(\d+)/ =~ link; $1 }.compact
 
       sequences = sequences | new_sequences
 
@@ -43,9 +40,6 @@ class API::MabinogiRec
     sequences
   end
   
-  #
-  # 指定されたシーケンス番号のファンアートの詳細情報を取得する
-  #
   def detail(sequence)
     if sequence.blank? then return false end
     

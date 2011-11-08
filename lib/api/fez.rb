@@ -35,7 +35,7 @@ class API::Fez
         break
       end
 
-      sequences = sequences | new_sequences
+      sequences = (sequences | new_sequences).compact
       
       if page >= last then p 'last page: ' + page.to_s; break end
       page += 1
