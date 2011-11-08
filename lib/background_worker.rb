@@ -7,6 +7,7 @@ class BackgroundWorker
     DBM.log_all_active_posts(:context=>:mabinogiss)
     DBM.log_all_active_posts(:context=>:mabinogiss_rec)
     DBM.log_all_active_posts(:context=>:fez)
+    DBM.log_all_active_posts(:context=>:pangya)
   end
   
   def self.create_new_posts
@@ -15,6 +16,7 @@ class BackgroundWorker
     DBM.create_new_posts(:context=>:mabinogiss)
     DBM.create_new_posts(:context=>:mabinogiss_rec)
     DBM.create_new_posts(:context=>:fez)
+    DBM.create_new_posts(:context=>:pangya)
   end
 
   def self.delete_inactive_posts
@@ -23,6 +25,7 @@ class BackgroundWorker
     DBM.delete_inactive_posts(:context=>:mabinogiss)
     DBM.delete_inactive_posts(:context=>:mabinogiss_rec)
     DBM.delete_inactive_posts(:context=>:fez)
+    DBM.delete_inactive_posts(:context=>:pangya)
   end
   
 end

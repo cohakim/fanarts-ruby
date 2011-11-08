@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(:version => 20111026083630) do
   add_index "sequence_ques", ["sequence"], :name => "index_sequence_ques_on_sequence", :unique => true
 
   create_table "topics", :force => true do |t|
-    t.integer  "topic",      :null => false
-    t.text     "sequences"
+    t.integer  "topic",                          :null => false
+    t.text     "sequences",  :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end

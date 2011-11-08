@@ -1,5 +1,26 @@
 
 class DBM
+
+  def self.api(context)
+    api = nil
+    case context
+    when :mabinogi
+      api = API::Mabinogi.new
+    when :mabinogi_rec
+      api = API::MabinogiRec.new
+    when :mabinogiss
+      api = API::MabinogiSS.new
+    when :mabinogiss_rec
+      api = API::MabinogiSSRec.new
+    when :fez
+      api = API::Fez.new
+    when :pangya
+      api = API::Pangya.new
+    end
+    api
+  end
+  
+  ############################################################################
     
   def self.log_all_active_posts(options = {})
     context = options[:context]
@@ -73,26 +94,6 @@ class DBM
     end
     
     nil
-  end
-
-  ############################################################################
-  protected
-  
-  def self.api(context)
-    api = nil
-    case context
-    when :mabinogi
-      api = API::Mabinogi.new
-    when :mabinogi_rec
-      api = API::MabinogiRec.new
-    when :mabinogiss
-      api = API::MabinogiSS.new
-    when :mabinogiss_rec
-      api = API::MabinogiSSRec.new
-    when :fez
-      api = API::Fez.new
-    end
-    api
   end
 
 end

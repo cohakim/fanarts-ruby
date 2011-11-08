@@ -23,17 +23,23 @@ class FanArt < ActiveRecord::Base
   CONTEXT_MABINOGISS     = 200
   CONTEXT_MABINOGISS_REC = 210
   CONTEXT_FEZ            = 300
+  CONTEXT_PANGYA         = 400
+  CONTEXT_PANGYASS       = 500
 
   ############################################################################
   CONTEXT_MABINOGI_ALL   = [CONTEXT_MABINOGI, CONTEXT_MABINOGI_REC]
   CONTEXT_MABINOGISS_ALL = [CONTEXT_MABINOGISS, CONTEXT_MABINOGISS_REC]
   CONTEXT_FEZ_ALL        = [CONTEXT_FEZ]
-  CONTEXT_ALL            = CONTEXT_MABINOGI_ALL | CONTEXT_MABINOGISS_ALL | CONTEXT_FEZ_ALL
+  CONTEXT_PANGYA_ALL     = [CONTEXT_PANGYA]
+  CONTEXT_PANGYASS_ALL   = [CONTEXT_PANGYASS]
+  CONTEXT_ALL            = CONTEXT_MABINOGI_ALL | CONTEXT_MABINOGISS_ALL | CONTEXT_FEZ_ALL | \
+                           CONTEXT_PANGYA_ALL | CONTEXT_PANGYASS_ALL
 
   ############################################################################
   CONTEXT = { :mabinogi => CONTEXT_MABINOGI, :mabinogi_rec => CONTEXT_MABINOGI_REC, 
               :mabinogiss => CONTEXT_MABINOGISS , :mabinogiss_rec => CONTEXT_MABINOGISS_REC, 
-              :fez => CONTEXT_FEZ, :all => CONTEXT_ALL }
+              :fez => CONTEXT_FEZ, :pangya => CONTEXT_PANGYA, :pangyass => CONTEXT_PANGYASS,
+              :all => CONTEXT_ALL }
   
   ############################################################################
   paginates_per 20
