@@ -9,6 +9,6 @@ class CreateSequenceQues < ActiveRecord::Migration
       t.timestamps
     end
     add_index :sequence_ques, :context_id
-    add_index :sequence_ques, :sequence, :unique => true
+    add_index :sequence_ques, [:context_id, :sequence], :unique => true
   end
 end
