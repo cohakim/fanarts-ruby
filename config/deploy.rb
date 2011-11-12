@@ -4,7 +4,7 @@ set :use_sudo,    false
 
 set :scm, :git
 set :branch,      "develop"
-set :repository,  "/Users/cohakim/Public/Dropbox/projects/Rails/FanArts"
+set :repository,  "/Users/cohakim/Dropbox/projects/Rails/FanArts"
 set :deploy_via,  :copy
 set :deploy_to,   "/var/www/app/fanarts"
 
