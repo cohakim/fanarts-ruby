@@ -6,7 +6,7 @@ require 'timeout'
 include ActionView::Helpers::TextHelper
 
 class API::Fez
-  INDEX_URL  = 'http://www.fezero.jp/com_imglist.aspx?page=%s'
+  INDEX_URL  = 'http://www.fezero.jp/com_imglist.aspx?flg=3&tag=0&page=%s'
   DETAIL_URL = 'http://www.fezero.jp/com_imgview.aspx?seq=%s'
   
   #
@@ -15,6 +15,7 @@ class API::Fez
   def sequences(start = 1, last = 1)
     sequences = Array.new
     page = start
+    page = page - 1 # FEZ page start 0
     while (true) do
       if page == start || page % 100 == 0 then p 'processing: ' + page.to_s end
 
