@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'jquery-rails'
 gem 'unicorn'
 gem 'sqlite3'
@@ -22,6 +21,9 @@ end
 
 group :development do
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+  gem 'rspec-rails'
+  gem 'rcov'
+  gem 'ci_reporter'
 end
 
 group :test do
