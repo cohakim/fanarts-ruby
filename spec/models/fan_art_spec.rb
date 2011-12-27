@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe FanArt do
   let(:fanarts) { Array.new }
-  let(:first)   { FactoryGirl.create(:fan_art, :sequence => '100', :context_id => '200') }
-  let(:middle)  { FactoryGirl.create(:fan_art, :sequence => '300', :context_id => '300') }
-  let(:last)    { FactoryGirl.create(:fan_art, :sequence => '500', :context_id => '100') }
+  let(:first)   { FactoryGirl.create(:fan_art, :sequence => '100', :context_id => FanArt::CONTEXT_FEZ) }
+  let(:middle)  { FactoryGirl.create(:fan_art, :sequence => '300', :context_id => FanArt::CONTEXT_PANGYA) }
+  let(:last)    { FactoryGirl.create(:fan_art, :sequence => '500', :context_id => FanArt::CONTEXT_MABINOGI) }
 
   context 'scope#newly' do
     before do
@@ -18,7 +18,7 @@ describe FanArt do
     before do
       fanarts << first << middle << last
     end
-    subject { FanArt.context(200) }
+    subject { FanArt.context(FanArt::CONTEXT_FEZ) }
     it { should == [first] }
   end
 
@@ -26,7 +26,7 @@ describe FanArt do
     before do
       fanarts << first << middle << last
     end
-    subject { FanArt.contexts([200, 300]) }
+    subject { FanArt.contexts([FanArt::CONTEXT_FEZ, FanArt::CONTEXT_PANGYA]) }
     it { should == [first, middle] }
   end
 

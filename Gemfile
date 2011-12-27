@@ -37,7 +37,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem 'factory_girl_rails'
-  gem 'rcov'
+  gem 'simplecov', :require => false
   gem 'ci_reporter'
   gem 'growl'
 end

@@ -8,7 +8,7 @@ class ArtsController < ApplicationController
       format.json { render :json => items }
     end
   end
-  
+
   def mabinogi_fa_recommended
     page  = params[:page]
     items = FanArt.context(FanArt::CONTEXT_MABINOGI_REC).newly.page(page)
@@ -18,7 +18,7 @@ class ArtsController < ApplicationController
       format.json { render :json => items }
     end
   end
-  
+
   def mabinogi_fa_random
     page  = params[:page]
     items = FanArt.contexts(FanArt::CONTEXT_MABINOGI_ALL).random.page(page)
@@ -38,7 +38,7 @@ class ArtsController < ApplicationController
       format.json { render :json => items }
     end
   end
-  
+
   def mabinogi_ss_recommended
     page  = params[:page]
 
@@ -49,7 +49,7 @@ class ArtsController < ApplicationController
       format.json { render :json => items }
     end
   end
-  
+
   def mabinogi_ss_random
     page  = params[:page]
     items = FanArt.contexts(FanArt::CONTEXT_MABINOGISS_ALL).random.page(page)
@@ -59,7 +59,7 @@ class ArtsController < ApplicationController
       format.json { render :json => items }
     end
   end
-  
+
   def fez_fa_newly
     page  = params[:page]
     items = FanArt.context(FanArt::CONTEXT_FEZ).newly.page(page)
@@ -119,5 +119,5 @@ class ArtsController < ApplicationController
       format.json { render :json => items }
     end
   end
-  
+
 end
