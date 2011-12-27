@@ -6,7 +6,6 @@ gem 'mysql2'
 gem 'uglifier'
 gem 'therubyracer'
 gem 'minitest'
-gem 'whenever', :require => false
 
 gem 'haml-rails'
 gem 'hpricot'
@@ -23,12 +22,12 @@ group :development do
 end
 
 group :test do
-  gem 'sqlite3'
   gem 'turn', :require => false
 end
 
 group :production do
   gem 'unicorn'
+  gem 'whenever', :require => false
 end
 
 group :development, :test do

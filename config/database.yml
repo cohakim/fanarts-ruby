@@ -1,25 +1,20 @@
 development:
   adapter: mysql2
+  database: fanarts_development
+  username:
   encoding: utf8
-  reconnect: false
-  database: fanarts
-  username: root
-  password: root
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
+  host: 127.0.0.1
 
 test:
   adapter: mysql2
-  encoding: utf8
-  reconnect: false
   database: fanarts_test
-  username: root
-  password: root
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
+  username:
+  encoding: utf8
+  host: 127.0.0.1
 
 production:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
   database: fanarts
   username: fanarts
   password: fanarts
