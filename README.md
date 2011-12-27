@@ -1,12 +1,4 @@
 fanarts-ruby
 ============
 
-## 概要
-
-## システム要件
-
-## 機能一覧
-
-## 対応サービス
-
-## 関連リンク
+[![Build Status](https://secure.travis-ci.org/cohakim/fanarts-ruby.png)](http://travis-ci.org/cohakim/fanarts-ruby)
