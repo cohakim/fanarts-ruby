@@ -2,14 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'jquery-rails'
-gem 'unicorn'
-gem 'sqlite3'
 gem 'mysql2'
 gem 'uglifier'
 gem 'therubyracer'
 gem 'minitest'
 gem 'whenever', :require => false
 
+gem 'haml-rails'
 gem 'hpricot'
 gem 'kaminari'
 
@@ -21,11 +20,25 @@ end
 
 group :development do
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-  gem 'rspec-rails'
-  gem 'rcov'
-  gem 'ci_reporter'
 end
 
 group :test do
+  gem 'sqlite3'
   gem 'turn', :require => false
+end
+
+group :production do
+  gem 'unicorn'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
+  gem 'factory_girl_rails'
+  gem 'rcov'
+  gem 'ci_reporter'
+  gem 'growl'
 end

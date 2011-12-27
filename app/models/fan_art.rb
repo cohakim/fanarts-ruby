@@ -36,17 +36,17 @@ class FanArt < ActiveRecord::Base
                            CONTEXT_PANGYA_ALL | CONTEXT_PANGYASS_ALL
 
   ############################################################################
-  CONTEXT = { :mabinogi => CONTEXT_MABINOGI, :mabinogi_rec => CONTEXT_MABINOGI_REC, 
-              :mabinogiss => CONTEXT_MABINOGISS , :mabinogiss_rec => CONTEXT_MABINOGISS_REC, 
+  CONTEXT = { :mabinogi => CONTEXT_MABINOGI, :mabinogi_rec => CONTEXT_MABINOGI_REC,
+              :mabinogiss => CONTEXT_MABINOGISS , :mabinogiss_rec => CONTEXT_MABINOGISS_REC,
               :fez => CONTEXT_FEZ, :pangya => CONTEXT_PANGYA, :pangyass => CONTEXT_PANGYASS,
               :all => CONTEXT_ALL }
-  
+
   ############################################################################
   paginates_per 20
   scope :newly, { :order => 'cast(sequence as SIGNED) desc' }
   scope :context, lambda {|context| where(['context_id = ?', context]) }
   scope :contexts, lambda {|contexts| where(['context_id in (?)', contexts]) }
   scope :sequences, lambda{|sequences| where(['sequence in (?)', sequences]) }
-  scope :random, lambda{ Rails.env.production? ? { :order => 'RAND()' } : { :order => 'RANDOM()' } }
+  scope :random, { :order => 'RAND()' }
 
 end

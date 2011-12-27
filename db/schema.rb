@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111019035119) do
+ActiveRecord::Schema.define(:version => 20111026083630) do
 
   create_table "fan_arts", :force => true do |t|
     t.integer  "context_id",    :null => false
@@ -39,7 +39,14 @@ ActiveRecord::Schema.define(:version => 20111019035119) do
     t.datetime "updated_at"
   end
 
+  add_index "sequence_ques", ["context_id", "sequence"], :name => "index_sequence_ques_on_context_id_and_sequence", :unique => true
   add_index "sequence_ques", ["context_id"], :name => "index_sequence_ques_on_context_id"
-  add_index "sequence_ques", ["sequence"], :name => "index_sequence_ques_on_sequence", :unique => true
+
+  create_table "topics", :force => true do |t|
+    t.integer  "topic",                          :null => false
+    t.text     "sequences",  :limit => 16777215
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

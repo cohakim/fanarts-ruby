@@ -8,10 +8,13 @@ development:
   socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: fanarts_test
+  username: root
+  password: root
+  socket: /Applications/MAMP/tmp/mysql/mysql.sock
 
 production:
   adapter: mysql2
