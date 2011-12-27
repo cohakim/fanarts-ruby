@@ -10,4 +10,4 @@ branches:
   only:
     - develop
 env:
-  - DATABASE_URL="mysql://0.0.0.0/fanarts_test"
+  - DB=mysql
