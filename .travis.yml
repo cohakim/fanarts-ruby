@@ -1,8 +1,14 @@
-branches:
-  - develop
-language: ruby
+bundler_args: --without development
+before_script:
+  - "mysql -e 'create database fanarts_test;'"
+script: 'bundle exec rspec spec'
 rvm:
   - 1.9.2
   - 1.9.3
+gemfile:
+  - Gemfile
+branches:
+  only:
+    - develop
 env:
   - DB=mysql
