@@ -1,5 +1,8 @@
+branches:
+  - develop
+language: ruby
 rvm:
   - 1.9.2
-branches:
-  - master
-  - develop
+  - 1.9.3
+env:
+  - DB=mysql
