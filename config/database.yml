@@ -24,3 +24,9 @@ production:
   username: fanarts
   password: fanarts
   socket: /var/run/mysqld/mysqld.sock
+
+mysql:
+  adapter: mysql2
+  database: fanarts_test
+  username:
+  encoding: utf8
