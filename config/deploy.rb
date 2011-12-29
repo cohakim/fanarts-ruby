@@ -1,21 +1,21 @@
-set :application, "fanarts"
-set :user,        "app"
-set :use_sudo,    false
-
-set :scm, :git
-set :branch,      "develop"
-set :repository,  "/Users/cohakim/Dropbox/projects/Rails/FanArts"
-set :deploy_via,  :copy
-set :deploy_to,   "/var/www/app/fanarts"
-
-# set :branch,      "master"
-# set :repository,  "git@github.com:cohakim/simple1000.git"
-# set :deploy_via,  :remote_cache
-# set :deploy_to,   "/var/www/app/fanarts/"
-
+set  :application, "fanarts"
 role :web, "106.187.39.247"
 role :app, "106.187.39.247"
 role :db,  "106.187.39.247", :primary => true
+
+set :scm,         :git
+set :user,        "app"
+set :use_sudo,    false
+
+# set :branch,      "develop"
+# set :repository,  "/Users/cohakim/Dropbox/projects/Rails/FanArts"
+# set :deploy_via,  :copy
+# set :deploy_to,   "/var/www/app/fanarts"
+
+set :branch,      "master"
+set :repository,  "git@github.com:cohakim/fanarts-ruby.git"
+set :deploy_via,  :remote_cache
+set :deploy_to,   "/var/www/app/fanarts/"
 
 # for bundler
 require "bundler/capistrano"

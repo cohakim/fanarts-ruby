@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'whenever', :require => false
 gem 'uglifier'
 gem 'therubyracer'
 gem 'minitest'
@@ -27,7 +28,6 @@ end
 
 group :production do
   gem 'unicorn'
-  gem 'whenever', :require => false
 end
 
 group :development, :test do
