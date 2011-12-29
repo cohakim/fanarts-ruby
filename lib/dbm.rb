@@ -19,29 +19,29 @@ class DBM
     end
     api
   end
-  
+
   ############################################################################
-    
+
   def self.log_all_active_posts(options = {})
     context = options[:context]
     unless FanArt::CONTEXT.has_key?(context) then p 'unsupported context'; return false end
 
     active_sequences  = api(context).sequences(1, 2000).compact
     Topic.create!(:topic => FanArt::CONTEXT[context], :sequences => active_sequences)
-    
+
     nil
   end
-  
+
   def self.create_new_posts(options = {})
     context = options[:context]
     unless FanArt::CONTEXT.has_key?(context) then p 'unsupported context'; return false end
-    
+
     self.create_ques_for_new_posts(options)
     self.process_ques_for_new_posts(options)
-    
+
     nil
   end
-  
+
   def self.delete_inactive_posts(options = {})
     context = options[:context]
     unless FanArt::CONTEXT.has_key?(context) then p 'unsupported context'; return false end
@@ -51,9 +51,9 @@ class DBM
       FanArt.context(FanArt::CONTEXT[context]).map{|i| i.sequence }
     }.call
     inactive_sequences = (stored_sequences - active_sequences).compact
-    
+
     FanArt.context(FanArt::CONTEXT[context]).sequences(inactive_sequences).delete_all
-    
+
     nil
   end
 
@@ -69,19 +69,19 @@ class DBM
         + SequenceQue.context(FanArt::CONTEXT[context]).map{|i| i.sequence }
     }.call
     new_sequences     = (active_sequences - stored_sequences).compact
-    
+
     new_sequences.each do |sequence|
       SequenceQue.create!({ :context_id => FanArt::CONTEXT[context], :sequence => sequence })
     end
-    
+
     nil
   end
-  
+
   def self.process_ques_for_new_posts(options = {})
     context = options[:context]
     unless FanArt::CONTEXT.has_key?(context) then p 'unsupported context'; return false end
 
-    SequenceQue.context(FanArt::CONTEXT[context]).each do |que|
+    SequenceQue.context(FanArt::CONTEXT[context]).not_broken_ques.each do |que|
       begin
         detail = api(context).detail(que.sequence).merge({ :context_id => FanArt::CONTEXT[context] })
         FanArt.create!(detail)
@@ -92,7 +92,7 @@ class DBM
         next
       end
     end
-    
+
     nil
   end
 
