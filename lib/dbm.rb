@@ -1,6 +1,8 @@
 
 class DBM
 
+  ############################################################################
+
   def self.api(context)
     api = nil
     case context
@@ -22,6 +24,8 @@ class DBM
       api = API::Cgf.new
     when :latele
       api = API::Latele.new
+    when :maple_story
+      api = API::MapleStory.new
     end
     api
   end

@@ -180,4 +180,24 @@ class ArtsController < ApplicationController
     end
   end
 
+  def maple_story_fa_newly
+    page  = params[:page]
+    items = FanArt.context(FanArt::CONTEXT_MAPLE_STORY).newly.page(page)
+
+    respond_to do |format|
+      format.html { render :json => items }
+      format.json { render :json => items }
+    end
+  end
+
+  def maple_story_fa_random
+    page  = params[:page]
+    items = FanArt.contexts(FanArt::CONTEXT_MAPLE_STORY_ALL).random.page(page)
+
+    respond_to do |format|
+      format.html { render :json => items }
+      format.json { render :json => items }
+    end
+  end
+
 end

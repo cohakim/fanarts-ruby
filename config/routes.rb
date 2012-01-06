@@ -17,4 +17,6 @@ FanArts::Application.routes.draw do
   match '/arts/cgf/fanart/random/:page'            => 'arts#cgf_fa_random'
   match '/arts/latele/fanart/newly/:page'          => 'arts#latele_fa_newly'
   match '/arts/latele/fanart/random/:page'         => 'arts#latele_fa_random'
+  match '/arts/maple_story/fanart/newly/:page'     => 'arts#maple_story_fa_newly'
+  match '/arts/maple_story/fanart/random/:page'    => 'arts#maple_story_fa_random'
 end
