@@ -12,7 +12,7 @@ class API::MapleStory
   def sequences(start = 1, last = 1)
     sequences = Array.new
     page = start
-    last = [last, 500].max # slow page load times caused by old page
+    last = [last, 500].min # slow page load times caused by old page
     while (true) do
       if page == start || page % 100 == 0 then p 'processing: ' + page.to_s end
 
