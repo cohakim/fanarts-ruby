@@ -11,7 +11,7 @@
 
 class Topic < ActiveRecord::Base
   serialize :sequences
-  
+
   ############################################################################
   TOPIC_MABINOGI             = 100
   TOPIC_MABINOGI_REC         = 110
@@ -25,7 +25,8 @@ class Topic < ActiveRecord::Base
   TOPIC_PANGYA_RETWEETED     = 420
   TOPIC_PANGYASS             = 500
   TOPIC_PANGYASS_RETWEETED   = 520
-  
+  TOPIC_PAPERMAN             = 600
+
   ############################################################################
   scope :topic, lambda {|topic| where(['topic = ?', topic]) }
 

@@ -1,6 +1,6 @@
 
 class BackgroundWorker
-  
+
   def self.log_all_active_posts
     DBM.log_all_active_posts(:context=>:mabinogi)
     DBM.log_all_active_posts(:context=>:mabinogi_rec)
@@ -8,8 +8,9 @@ class BackgroundWorker
     DBM.log_all_active_posts(:context=>:mabinogiss_rec)
     DBM.log_all_active_posts(:context=>:fez)
     DBM.log_all_active_posts(:context=>:pangya)
+    DBM.log_all_active_posts(:context=>:paperman)
   end
-  
+
   def self.create_new_posts
     DBM.create_new_posts(:context=>:mabinogi)
     DBM.create_new_posts(:context=>:mabinogi_rec)
@@ -17,6 +18,7 @@ class BackgroundWorker
     DBM.create_new_posts(:context=>:mabinogiss_rec)
     DBM.create_new_posts(:context=>:fez)
     DBM.create_new_posts(:context=>:pangya)
+    DBM.create_new_posts(:context=>:paperman)
   end
 
   def self.delete_inactive_posts
@@ -26,6 +28,7 @@ class BackgroundWorker
     DBM.delete_inactive_posts(:context=>:mabinogiss_rec)
     DBM.delete_inactive_posts(:context=>:fez)
     DBM.delete_inactive_posts(:context=>:pangya)
+    DBM.delete_inactive_posts(:context=>:paperman)
   end
-  
+
 end

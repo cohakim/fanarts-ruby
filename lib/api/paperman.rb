@@ -1,18 +1,18 @@
-# API FOR FANTASY EARTH ZERO FANART
+# API FOR PAPERMAN FANART
 
 require 'open-uri'
 require "resolv-replace"
 require 'timeout'
 include ActionView::Helpers::TextHelper
 
-class API::Fez
-  INDEX_URL  = 'http://www.fezero.jp/com_imglist.aspx?flg=3&tag=0&page=%s'
-  DETAIL_URL = 'http://www.fezero.jp/com_imgview.aspx?seq=%s'
+class API::Paperman
+  INDEX_URL  = 'http://www.paperman.jp/com_imglist.aspx?page=%s'
+  DETAIL_URL = 'http://www.paperman.jp/com_imgview.aspx?seq=%s'
 
   def sequences(start = 1, last = 1)
     sequences = Array.new
     page = start
-    page = page - 1 # FEZ page start 0
+    page = page - 1 # PAPERMAN page start 0
     while (true) do
       if page == start || page % 100 == 0 then p 'processing: ' + page.to_s end
 
@@ -54,11 +54,11 @@ class API::Fez
 
     begin
       detail = Hpricot(response.read.encode("utf-8", "sjis", invalid: :replace, undef: :replace))
-      title = strip_tags((detail/:td).third.inner_html.gsub(/\&nbsp;/, ' ')).strip
-      author = (detail/:td).fourth.inner_html.strip
-      published_at = DateTime.parse((detail/:td).fifth.inner_html.strip + ' 00:00:00 JST')
-      image_url = 'http://www.fezero.jp/upload/upimage/' + sequence.to_s + 'n.jpg'
-      comment = strip_tags((detail/:td)[25].try(:inner_html).try(:strip))
+      title = strip_tags((detail/:td).fourth.inner_html.gsub(/\&nbsp;/, ' ')).strip
+      author = strip_tags((detail/:td).fifth.inner_html).try(:strip)
+      published_at = DateTime.parse((detail/:td)[6].inner_html.strip + ' 00:00:00 JST')
+      image_url = 'http://www.paperman.jp/upload/upimage/' + sequence.to_s + 'n.jpg'
+      comment = strip_tags((detail/:td)[12].try(:inner_html).try(:strip))
     rescue
       p 'detail parse error: ' + request_url
       raise 'detail parse error: ' + request_url

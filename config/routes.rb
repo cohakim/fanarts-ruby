@@ -11,4 +11,6 @@ FanArts::Application.routes.draw do
   match '/arts/pangya/fanart/random/:page'         => 'arts#pangya_fa_random'
   match '/arts/pangya/ss/newly/:page'              => 'arts#pangya_ss_newly'
   match '/arts/pangya/ss/random/:page'             => 'arts#pangya_ss_random'
+  match '/arts/paperman/fanart/newly/:page'        => 'arts#paperman_fa_newly'
+  match '/arts/paperman/fanart/random/:page'       => 'arts#paperman_fa_random'
 end

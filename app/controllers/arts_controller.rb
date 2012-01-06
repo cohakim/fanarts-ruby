@@ -120,4 +120,24 @@ class ArtsController < ApplicationController
     end
   end
 
+  def paperman_fa_newly
+    page  = params[:page]
+    items = FanArt.context(FanArt::CONTEXT_PAPERMAN).newly.page(page)
+
+    respond_to do |format|
+      format.html { render :json => items }
+      format.json { render :json => items }
+    end
+  end
+
+  def paperman_fa_random
+    page  = params[:page]
+    items = FanArt.contexts(FanArt::CONTEXT_PAPERMAN_ALL).random.page(page)
+
+    respond_to do |format|
+      format.html { render :json => items }
+      format.json { render :json => items }
+    end
+  end
+
 end

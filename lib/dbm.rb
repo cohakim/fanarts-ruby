@@ -16,6 +16,8 @@ class DBM
       api = API::Fez.new
     when :pangya
       api = API::Pangya.new
+    when :paperman
+      api = API::Paperman.new
     end
     api
   end
