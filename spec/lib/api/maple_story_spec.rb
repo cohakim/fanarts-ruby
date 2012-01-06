@@ -9,14 +9,6 @@ describe API::MapleStory do
       it { should be_a_kind_of Array }
       it { should have_at_least(1).sequences }
     end
-
-    context 'page out of bounds' do
-      let(:start) { 9999 }
-      let(:last)  { 9999 }
-      subject { API::MapleStory.new.sequences(start, last) }
-      it { should be_a_kind_of Array }
-      it { should be_empty }
-    end
   end
 
   context '#detail' do
