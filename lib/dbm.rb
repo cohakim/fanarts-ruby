@@ -18,6 +18,8 @@ class DBM
       api = API::Pangya.new
     when :paperman
       api = API::Paperman.new
+    when :cgf
+      api = API::Cgf.new
     end
     api
   end

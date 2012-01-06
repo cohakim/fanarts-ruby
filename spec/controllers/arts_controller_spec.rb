@@ -322,4 +322,51 @@ describe ArtsController do
       it { response.should be_success }
     end
   end
+
+  describe 'GET cgf_fa_newly' do
+    context 'first' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_CGF) }
+        get :cgf_fa_newly, :page => 1
+      end
+      it { response.should be_success }
+    end
+    context 'out of bounds' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_CGF) }
+        get :cgf_fa_newly, :page => 999
+      end
+      it { response.should be_success }
+    end
+    context 'empty' do
+      before do
+        get :cgf_fa_newly, :page => 1
+      end
+      it { response.should be_success }
+    end
+  end
+
+  describe 'GET cgf_fa_random' do
+    context 'first' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_CGF) }
+        get :cgf_fa_random, :page => 1
+      end
+      it { response.should be_success }
+    end
+    context 'out of bounds' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_CGF) }
+        get :cgf_fa_random, :page => 999
+      end
+      it { response.should be_success }
+    end
+    context 'empty' do
+      before do
+        get :cgf_fa_random, :page => 1
+      end
+      it { response.should be_success }
+    end
+  end
+
 end

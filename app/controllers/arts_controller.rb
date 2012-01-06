@@ -140,4 +140,24 @@ class ArtsController < ApplicationController
     end
   end
 
+  def cgf_fa_newly
+    page  = params[:page]
+    items = FanArt.context(FanArt::CONTEXT_CGF).newly.page(page)
+
+    respond_to do |format|
+      format.html { render :json => items }
+      format.json { render :json => items }
+    end
+  end
+
+  def cgf_fa_random
+    page  = params[:page]
+    items = FanArt.contexts(FanArt::CONTEXT_CGF_ALL).random.page(page)
+
+    respond_to do |format|
+      format.html { render :json => items }
+      format.json { render :json => items }
+    end
+  end
+
 end

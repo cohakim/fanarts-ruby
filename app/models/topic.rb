@@ -26,6 +26,7 @@ class Topic < ActiveRecord::Base
   TOPIC_PANGYASS             = 500
   TOPIC_PANGYASS_RETWEETED   = 520
   TOPIC_PAPERMAN             = 600
+  TOPIC_CGF                  = 700
 
   ############################################################################
   scope :topic, lambda {|topic| where(['topic = ?', topic]) }
