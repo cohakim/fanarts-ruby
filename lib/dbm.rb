@@ -20,6 +20,8 @@ class DBM
       api = API::Paperman.new
     when :cgf
       api = API::Cgf.new
+    when :latele
+      api = API::Latele.new
     end
     api
   end

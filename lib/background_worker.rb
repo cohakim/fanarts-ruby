@@ -10,6 +10,7 @@ class BackgroundWorker
     DBM.log_all_active_posts(:context=>:pangya)
     DBM.log_all_active_posts(:context=>:paperman)
     DBM.log_all_active_posts(:context=>:cgf)
+    DBM.log_all_active_posts(:context=>:latele)
   end
 
   def self.create_new_posts
@@ -21,6 +22,7 @@ class BackgroundWorker
     DBM.create_new_posts(:context=>:pangya)
     DBM.create_new_posts(:context=>:paperman)
     DBM.create_new_posts(:context=>:cgf)
+    DBM.create_new_posts(:context=>:latele)
   end
 
   def self.delete_inactive_posts
@@ -32,6 +34,7 @@ class BackgroundWorker
     DBM.delete_inactive_posts(:context=>:pangya)
     DBM.delete_inactive_posts(:context=>:paperman)
     DBM.delete_inactive_posts(:context=>:cgf)
+    DBM.delete_inactive_posts(:context=>:latele)
   end
 
 end

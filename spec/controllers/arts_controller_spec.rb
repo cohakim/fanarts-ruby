@@ -369,4 +369,50 @@ describe ArtsController do
     end
   end
 
+  describe 'GET latele_fa_newly' do
+    context 'first' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_LATELE) }
+        get :latele_fa_newly, :page => 1
+      end
+      it { response.should be_success }
+    end
+    context 'out of bounds' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_LATELE) }
+        get :latele_fa_newly, :page => 999
+      end
+      it { response.should be_success }
+    end
+    context 'empty' do
+      before do
+        get :latele_fa_newly, :page => 1
+      end
+      it { response.should be_success }
+    end
+  end
+
+  describe 'GET latele_fa_random' do
+    context 'first' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_LATELE) }
+        get :latele_fa_random, :page => 1
+      end
+      it { response.should be_success }
+    end
+    context 'out of bounds' do
+      before do
+        25.times{ FactoryGirl.create(:fan_art, :context_id => FanArt::CONTEXT_LATELE) }
+        get :latele_fa_random, :page => 999
+      end
+      it { response.should be_success }
+    end
+    context 'empty' do
+      before do
+        get :latele_fa_random, :page => 1
+      end
+      it { response.should be_success }
+    end
+  end
+
 end

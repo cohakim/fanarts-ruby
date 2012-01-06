@@ -15,4 +15,6 @@ FanArts::Application.routes.draw do
   match '/arts/paperman/fanart/random/:page'       => 'arts#paperman_fa_random'
   match '/arts/cgf/fanart/newly/:page'             => 'arts#cgf_fa_newly'
   match '/arts/cgf/fanart/random/:page'            => 'arts#cgf_fa_random'
+  match '/arts/latele/fanart/newly/:page'          => 'arts#latele_fa_newly'
+  match '/arts/latele/fanart/random/:page'         => 'arts#latele_fa_random'
 end

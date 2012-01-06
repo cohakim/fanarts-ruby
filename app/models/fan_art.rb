@@ -27,6 +27,7 @@ class FanArt < ActiveRecord::Base
   CONTEXT_PANGYASS       = 500
   CONTEXT_PAPERMAN       = 600
   CONTEXT_CGF            = 700
+  CONTEXT_LATELE         = 800
 
   ############################################################################
   CONTEXT_MABINOGI_ALL   = [CONTEXT_MABINOGI, CONTEXT_MABINOGI_REC]
@@ -36,15 +37,16 @@ class FanArt < ActiveRecord::Base
   CONTEXT_PANGYASS_ALL   = [CONTEXT_PANGYASS]
   CONTEXT_PAPERMAN_ALL   = [CONTEXT_PAPERMAN]
   CONTEXT_CGF_ALL        = [CONTEXT_CGF]
+  CONTEXT_LATELE_ALL     = [CONTEXT_LATELE]
   CONTEXT_ALL            = CONTEXT_MABINOGI_ALL | CONTEXT_MABINOGISS_ALL | CONTEXT_FEZ_ALL | \
                            CONTEXT_PANGYA_ALL | CONTEXT_PANGYASS_ALL | CONTEXT_PAPERMAN_ALL | \
-                           CONTEXT_CGF_ALL
+                           CONTEXT_LATELE_ALL | CONTEXT_CGF_ALL
 
   ############################################################################
   CONTEXT = { :mabinogi => CONTEXT_MABINOGI, :mabinogi_rec => CONTEXT_MABINOGI_REC,
               :mabinogiss => CONTEXT_MABINOGISS , :mabinogiss_rec => CONTEXT_MABINOGISS_REC,
               :fez => CONTEXT_FEZ, :pangya => CONTEXT_PANGYA, :pangyass => CONTEXT_PANGYASS,
-              :paperman => CONTEXT_PAPERMAN, :cgf => CONTEXT_CGF,
+              :paperman => CONTEXT_PAPERMAN, :cgf => CONTEXT_CGF, :latele => CONTEXT_LATELE,
               :all => CONTEXT_ALL }
 
   ############################################################################
