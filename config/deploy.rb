@@ -20,7 +20,7 @@ set :deploy_to,   "/var/www/app/fanarts/"
 # for bundler
 require "bundler/capistrano"
 set :bundle_gemfile,  "Gemfile"
-set :bundle_dir,      ""
+set :bundle_dir,      "vendor/bundle"
 set :bundle_flags,    ""
 set :bundle_without,  [:development, :test]
 set :bundle_cmd,      "bundle"
