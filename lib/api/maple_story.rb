@@ -1,4 +1,4 @@
-# API FOR MABINOGI FANART
+# API FOR MAPLESTORY FANART
 
 require 'open-uri'
 require "resolv-replace"
