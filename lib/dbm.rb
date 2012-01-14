@@ -40,6 +40,9 @@ class DBM
     Topic.create!(:topic => FanArt::CONTEXT[context], :sequences => active_sequences)
 
     nil
+  rescue
+    p "[#{context.to_s}] log_all_active_posts aborted"
+    nil
   end
 
   def self.create_new_posts(options = {})
@@ -49,6 +52,9 @@ class DBM
     self.create_ques_for_new_posts(options)
     self.process_ques_for_new_posts(options)
 
+    nil
+  rescue
+    p "[#{context.to_s}] create_new_posts aborted"
     nil
   end
 
@@ -64,6 +70,9 @@ class DBM
 
     FanArt.context(FanArt::CONTEXT[context]).sequences(inactive_sequences).delete_all
 
+    nil
+  rescue
+    p "[#{context.to_s}] delete_inactive_posts aborted"
     nil
   end
 
