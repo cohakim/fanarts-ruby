@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-FanArts::Application.config.secret_token = '0c85e551137cc747789ddff6b6f66a5ce319219bf5cadad3e44d9eed914d7cf2f3759d4de41174d109c9b213db1e41fa48666615ecaf3a7e800ca18fc041cdee'
+FanArts::Application.config.secret_token = '51f41b884040cb677918fa06a535f467e8dbd0bb8a94de812784dd2c6dc4120221d6019d728a52875565796998a2943af5121e0ef1972370e9e12cc9836c28d3'

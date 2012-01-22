@@ -34,13 +34,13 @@ set :whenever_roles, [:app]
 # for unicorn
 namespace :app do
   task :start, :roles => :app, :except => { :no_release => true } do
-    run "sudo -S /etc/init.d/unicorn start"
+    run "sudo -S /etc/init.d/fanarts start"
   end
   task :stop, :roles => :app, :except => { :no_release => true } do
-    run "sudo -S /etc/init.d/unicorn stop"
+    run "sudo -S /etc/init.d/fanarts stop"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "sudo -S /etc/init.d/unicorn restart"
+    run "sudo -S /etc/init.d/fanarts restart"
   end
 end
 
