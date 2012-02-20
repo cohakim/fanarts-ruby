@@ -1,7 +1,7 @@
 set  :application, "fanarts"
-role :web, "106.187.39.247"
-role :app, "106.187.39.247"
-role :db,  "106.187.39.247", :primary => true
+role :web, "176.34.51.174"
+role :app, "176.34.51.174"
+role :db,  "176.34.51.174", :primary => true
 
 set :scm,         :git
 set :user,        "app"
@@ -21,7 +21,7 @@ set :deploy_to,   "/var/www/app/fanarts/"
 require "bundler/capistrano"
 set :bundle_gemfile,  "Gemfile"
 set :bundle_dir,      File.join(fetch(:shared_path), 'bundle')
-set :bundle_flags,    "--deployment --quiet"
+set :bundle_flags,    "--quiet"
 set :bundle_without,  [:development, :test]
 set :bundle_cmd,      "bundle"
 set :bundle_roles,    [:app]
