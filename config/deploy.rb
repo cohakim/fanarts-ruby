@@ -1,7 +1,7 @@
 set  :application, "fanarts"
-role :web, "176.34.51.174"
-role :app, "176.34.51.174"
-role :db,  "176.34.51.174", :primary => true
+role :web, "fanarts"
+role :app, "fanarts"
+role :db,  "fanarts", :primary => true
 
 set :scm,         :git
 set :user,        "app"
